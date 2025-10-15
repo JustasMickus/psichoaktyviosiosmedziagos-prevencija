@@ -117,6 +117,83 @@ section img {
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
+/* ====== Hero Section (Modern Landing) ====== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background-color: #eef2ff;
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #1e3a8a;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #2563eb;
+}
+
+.hero-image img {
+  width: 400px;
+  border-radius: 1rem;
+}
+
+/* ====== Features Section ====== */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.feature {
+  max-width: 300px;
+  text-align: center;
+  margin: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+
+.feature p {
+  color: #555;
+  line-height: 1.5;
+}
+
 /* ====== Responsive ====== */
 @media (max-width: 800px) {
   body {
@@ -138,6 +215,21 @@ section img {
 
   nav a {
     margin: 0 0.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 80%;
+    margin-top: 2rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
