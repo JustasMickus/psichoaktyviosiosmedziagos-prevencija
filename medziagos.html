@@ -5,6 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Psichoaktyviosios medžiagos</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Additional styling for card layout */
+    .info-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+      gap: 2rem;
+    }
+
+    .info-section img {
+      width: 40%;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .info-text {
+      width: 60%;
+    }
+
+    .info-text h2 {
+      color: #2563eb;
+      margin-bottom: 1rem;
+      border: none;
+    }
+
+    /* Alternate image sides */
+    .info-section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 900px) {
+      .info-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .info-section.reverse {
+        flex-direction: column;
+      }
+      .info-text, .info-section img {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Sidebar Navigation -->
@@ -18,31 +67,69 @@
 
   <!-- Main Content -->
   <main>
-    <section>
-      <h2>Alkoholis</h2>
-      <p>Tai toksiška, psichoaktyvi ir priklausomybę sukelianti medžiaga. Yra nustatytas ryšys tarp alkoholio vartojimo ir burnos, stemplės, ryklės, gerklų, kepenų, storžarnės (gaubtinės ir tiesiosios) ir krūties vėžio išsivystymo. Kuo daugiau suvartojama alkoholio, tuo didesnė rizika susirgti vėžiu. Pasaulio sveikatos organizacija akcentuoja, jog saugaus alkoholio vartojimo lygio nėra – vėžio rizika atsiranda net ir vartojant mažus alkoholio kiekius. Jauname amžiuje alkoholio vartojimas gali ypač pakenkti fiziniam ir protiniam vystymuisi. Kol jaunuolio smegenys dar galutinai nesusiformavusios, alkoholis gali jas lengvai pažeisti, o pažeidimai gali būti ilgalaikiai ir negrįžtami.</p>
+    <div class="info-section">
+      <div class="info-text">
+        <h2>Alkoholis</h2>
+        <p>Tai toksiška, psichoaktyvi ir priklausomybę sukelianti medžiaga. Yra nustatytas ryšys tarp alkoholio vartojimo ir burnos, stemplės, kepenų, bei kitų vėžių rizikos. Pasaulio sveikatos organizacija pabrėžia, jog saugaus alkoholio vartojimo lygio nėra.</p>
+      </div>
+      <img src="images/alkoholis.png" alt="Alkoholis">
+    </div>
 
-      <h2>Tabako gaminiai</h2>
-      <p>Rūkymas yra vienas iš pagrindinių daugelio plaučių ligų, taip pat ir lėtinės obstrukcinės plaučių ligos, bronchinės astmos ir plaučių vėžio rizikos veiksnių. Rūkomo tabako dūmuose, be nikotino, dar yra iki 400 įvairių kitų medžiagų (dervos, anglies monoksido ir kt.), kurios yra labai kenksmingos žmogaus sveikatai. Deja, jauni žmonės dažnai nesusimąsto apie neigiamas pasekmes savo organizmui, ligų tikimybę, kurios jiems atrodo labai tolimos.</p>
+    <div class="info-section reverse">
+      <div class="info-text">
+        <h2>Tabako gaminiai</h2>
+        <p>Rūkymas yra vienas iš pagrindinių daugelio plaučių ligų ir vėžio rizikos veiksnių. Tabako dūmuose yra šimtai kenksmingų medžiagų, kurios neigiamai veikia žmogaus sveikatą.</p>
+      </div>
+      <img src="images/tabakas.png" alt="Tabakas">
+    </div>
 
-      <h2>Elektroninės cigaretės ir kaitinamojo tabako gaminiai</h2>
-      <p>Šie gaminiai traukia jaunus vartotojus įvairiais skoniais, dizainu ir prietaisų funkcijomis. Nors gamintojai juos pristato kaip „saugesnę alternatyvą“, mokslininkai neturi pakankamai įrodymų, kad jie mažiau kenksmingi. Daugelyje skysčių randama nikotino ir kitų cheminių medžiagų, galinčių kenkti sveikatai.</p>
+    <div class="info-section">
+      <div class="info-text">
+        <h2>Elektroninės cigaretės</h2>
+        <p>Elektroninės cigaretės ir kaitinamojo tabako gaminiai traukia jaunimą skonių ir dizaino įvairove, tačiau mokslinių įrodymų, kad jie mažiau kenksmingi, nėra.</p>
+      </div>
+      <img src="images/e-cig.png" alt="Elektroninės cigaretės">
+    </div>
 
-      <h2>Naujos psichoaktyviosios medžiagos</h2>
-      <p>Naujos psichoaktyviosios medžiagos (NPS) – tai cheminės medžiagos, kurios nėra tradiciškai draudžiamų narkotikų sąrašuose, bet gali turėti panašų pavojingą poveikį. Dažnai jos parduodamos kaip „legalūs“ produktai internete ar specializuotose parduotuvėse. Dėl nežinomos sudėties šių medžiagų vartojimas gali kelti rimtų sveikatos problemų ar net mirtį.</p>
+    <div class="info-section reverse">
+      <div class="info-text">
+        <h2>Naujos psichoaktyviosios medžiagos</h2>
+        <p>Šios medžiagos dažnai parduodamos kaip „legalūs“ produktai, tačiau jų sudėtis nežinoma, o vartojimas gali būti pavojingas sveikatai ar net gyvybei.</p>
+      </div>
+      <img src="images/nps.png" alt="Naujos psichoaktyviosios medžiagos">
+    </div>
 
-      <h2>Vaistai</h2>
-      <p>Kai kurie vaistai (pvz., raminamieji, migdomieji, antidepresantai) taip pat priskiriami psichoaktyviosioms medžiagoms. Pavojinga juos vartoti be gydytojo priežiūros, nes gali kilti priklausomybė ar net mirtinas perdozavimas. Vaistai turi būti vartojami tik paskyrus gydytojui.</p>
+    <div class="info-section">
+      <div class="info-text">
+        <h2>Vaistai</h2>
+        <p>Kai kurie vaistai taip pat gali sukelti priklausomybę, ypač vartojami be gydytojo priežiūros. Pavojus – perdozavimas ar net mirtis.</p>
+      </div>
+      <img src="images/vaistai.png" alt="Vaistai">
+    </div>
 
-      <h2>Lakiosios medžiagos</h2>
-      <p>Lakiosios medžiagos (klijai, aerozoliai, valikliai ir kt.) yra pavojingos, kai naudojamos svaiginimosi tikslais. Jos veikia smegenis ir gali sukelti apsinuodijimą, haliucinacijas ar priklausomybę. Net keli įkvėpimai gali būti pavojingi gyvybei.</p>
+    <div class="info-section reverse">
+      <div class="info-text">
+        <h2>Lakiosios medžiagos</h2>
+        <p>Klijai, aerozoliai ir valikliai naudojami svaiginimuisi gali pažeisti smegenis, sukelti apsinuodijimą ar priklausomybę. Net keli įkvėpimai gali būti pavojingi gyvybei.</p>
+      </div>
+      <img src="images/lakiosios.png" alt="Lakiosios medžiagos">
+    </div>
 
-      <h2>Energiniai gėrimai</h2>
-      <p>Energiniai gėrimai turi daug kofeino – psichoaktyviosios medžiagos, kuri stimuliuoja nervų sistemą. Didelis kiekis gali sukelti priklausomybę, miego sutrikimus ir net apsinuodijimą, ypač maišant su alkoholiu.</p>
+    <div class="info-section">
+      <div class="info-text">
+        <h2>Energiniai gėrimai</h2>
+        <p>Turintys daug kofeino, jie stimuliuoja nervų sistemą, gali sukelti priklausomybę, nemigą ar net apsinuodijimą, ypač vartojant su alkoholiu.</p>
+      </div>
+      <img src="images/energiniai.png" alt="Energiniai gėrimai">
+    </div>
 
-      <h2>Narkotikai</h2>
-      <p>Narkotikai – tai medžiagos, sukeliančios priklausomybę ir pavojų sveikatai. Jie veikia psichiką, sukelia psichikos bei elgesio sutrikimus ir pažeidžia įvairias organizmo sistemas. Ilgalaikis vartojimas lemia priklausomybę, kurią sunku nutraukti.</p>
-    </section>
+    <div class="info-section reverse">
+      <div class="info-text">
+        <h2>Narkotikai</h2>
+        <p>Narkotikai sukelia priklausomybę, psichikos bei elgesio sutrikimus, pažeidžia organizmo sistemas ir gali būti mirtinai pavojingi.</p>
+      </div>
+      <img src="images/narkotikai.png" alt="Narkotikai">
+    </div>
   </main>
 </body>
 </html>
