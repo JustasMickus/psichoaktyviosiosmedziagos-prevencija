@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   display: flex;
   min-height: 100vh;
-  background-color: #f9fafb;
+  background-color: #f9fafb; /* originali šviesiai pilka fono spalva */
 }
 
 /* Šoninė navigacija visiems puslapiams */
@@ -14,7 +14,7 @@ nav {
   top: 0;
   height: 100%;
   width: 230px;
-  background: linear-gradient(180deg, #6a11cb, #2575fc);
+  background: linear-gradient(180deg, #2563eb, #1e3a8a); /* originalus mėlynas gradientas */
   color: white;
   display: flex;
   flex-direction: column;
@@ -62,12 +62,13 @@ main.landing {
   height: 100vh;
   text-align: center;
   padding: 0;
+  background-color: #2563eb; /* originalus landing fonas - tamsiai mėlynas */
 }
 
 main.landing h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #fff;
+  color: white;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
 
