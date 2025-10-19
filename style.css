@@ -19,7 +19,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffffcc;
+  background: #ffffffcc; 
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -48,8 +48,7 @@ nav a {
   transition: color 0.3s;
 }
 
-nav a:hover,
-nav a.active {
+nav a:hover, nav a.active {
   color: #2563eb;
 }
 
@@ -71,12 +70,11 @@ nav a.active {
   transition: 0.3s;
 }
 
-/* Mobile nav */
 @media(max-width:768px){
   nav {
     position: fixed;
-    top: 60px;
-    right: -100%;
+    top:60px; 
+    right:-100%;
     background:white;
     flex-direction: column;
     width: 200px;
@@ -107,12 +105,13 @@ nav a.active {
 
 /* ===== SECTIONS ===== */
 section {
-  padding: 140px 20px 100px; /* top padding for fixed header */
+  padding: 120px 20px 100px;
   max-width: 1000px;
   margin: 0 auto;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease, transform 1s ease;
+  scroll-margin-top: 80px; /* Pakeitimai mobiliai nuorodoms */
 }
 
 section.visible { opacity:1; transform: translateY(0); }
@@ -139,14 +138,18 @@ section h2 {
 .card:hover { transform: translateY(-5px); }
 
 .card img { width:40%; object-fit:cover; }
+
 .card-content { padding:20px; flex:1; }
+
 .card-content h3 { color:#1e3a8a; margin-bottom:1rem; font-size:1.5rem; }
+
 .card-content p { line-height:1.6; }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .card { flex-direction: column; text-align:center; }
   .card img, .card-content { width:100%; }
+  section { padding-top:100px; } /* mobiliai sekcijų padding */
 }
 
 footer {
