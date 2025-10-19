@@ -14,156 +14,74 @@
       overflow-x: hidden;
     }
 
-    /* ===== NAVBAR ===== */
+    /* ===== HEADER & NAV ===== */
     header {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: #ffffffcc;
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      z-index: 1000;
+      top: 0; left: 0; width: 100%;
+      background: #ffffffcc; backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 20px; z-index: 1000;
       border-bottom: 1px solid #e2e8f0;
     }
+    .logo { font-weight: 700; font-size: 1rem; color: #2563eb; text-transform: uppercase; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { text-decoration: none; color: #1e293b; font-weight: 500; transition: color 0.3s; }
+    nav a:hover, nav a.active { color: #2563eb; }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #2563eb;
-      text-transform: uppercase;
+    /* Hamburger menu */
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
+    .menu-toggle span { height: 3px; width: 100%; background: #2563eb; border-radius: 2px; transition: 0.3s; }
+    @media(max-width:768px){
+      nav { position: fixed; top:60px; right:-100%; background:white; flex-direction:column; width:200px; border-left:1px solid #e2e8f0; box-shadow:-2px 0 10px rgba(0,0,0,0.1); transition: right 0.3s; padding:20px 0; }
+      nav.open { right:0; }
+      .menu-toggle { display:flex; }
     }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #1e293b;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover, nav a.active {
-      color: #2563eb;
-    }
-
-    /* ===== HAMBURGER ===== */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 25px;
-      height: 18px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 100%;
-      background: #2563eb;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    /* Mobile nav menu */
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 60px;
-        right: -100%;
-        background: white;
-        flex-direction: column;
-        align-items: center;
-        width: 200px;
-        border-left: 1px solid #e2e8f0;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-        transition: right 0.3s;
-        padding: 20px 0;
-      }
-
-      nav.open {
-        right: 0;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    /* ===== SECTIONS ===== */
-    section {
-      padding: 100px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section h2 {
-      color: #2563eb;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    section p {
-      margin-bottom: 1rem;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    ul { list-style: none; padding-left: 0; }
-    li { margin-bottom: 0.8rem; }
 
     /* ===== HERO ===== */
     #home {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      display: flex; justify-content: center; align-items: center; text-align: center;
       background: linear-gradient(135deg, #93c5fd, #bfdbfe);
+      flex-direction: column; padding: 0 20px;
+    }
+    #home h1 { font-size: 2.5rem; color: #1e3a8a; margin-bottom: 1rem; }
+    #home p { color: #1e293b; max-width: 600px; }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+    section.visible { opacity:1; transform: translateY(0); }
+    section h2 { color:#2563eb; margin-bottom:2rem; font-size:2rem; text-align:center; }
+
+    /* ===== CARDS ===== */
+    .card {
+      display: flex;
+      flex-direction: row;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 40%; object-fit: cover; }
+    .card-content { padding: 20px; flex:1; }
+    .card-content h3 { color:#1e3a8a; margin-bottom:1rem; font-size:1.5rem; }
+    .card-content p { line-height:1.6; }
+
+    @media(max-width:900px){
+      .card { flex-direction: column; text-align:center; }
+      .card img, .card-content { width:100%; }
     }
 
-    #home h1 {
-      font-size: 2.5rem;
-      color: #1e3a8a;
-      margin-bottom: 1rem;
-    }
-
-    #home p {
-      color: #1e293b;
-      max-width: 600px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background: #2563eb;
-      color: white;
-      margin-top: 40px;
-    }
+    footer { text-align:center; padding:30px 0; background:#2563eb; color:white; margin-top:40px; }
   </style>
 </head>
 <body>
 
   <header>
     <div class="logo">Psichoaktyviųjų medžiagų prevencija</div>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
     <nav id="nav">
       <a href="#home" class="active">Pradžia</a>
       <a href="#medziagos">Medžiagos</a>
@@ -179,21 +97,83 @@
 
   <section id="medziagos">
     <h2>Psichoaktyviosios medžiagos</h2>
-    <p>Informacija apie dažniausiai vartojamas medžiagas ir jų poveikį sveikatai.</p>
-    <ul>
-      <li><strong>Alkoholis</strong> – toksiška medžiaga, sukelianti priklausomybę.</li>
-      <li><strong>Tabakas</strong> – didina plaučių ligų ir vėžio riziką.</li>
-      <li><strong>Elektroninės cigaretės</strong> – klaidingai laikomos saugiomis.</li>
-      <li><strong>Naujos medžiagos</strong> – pavojingos ir neprognozuojamos.</li>
-      <li><strong>Vaistai</strong> – priklausomybės rizika be gydytojo priežiūros.</li>
-      <li><strong>Lakiosios medžiagos</strong> – gali sukelti mirtiną apsinuodijimą.</li>
-      <li><strong>Energiniai gėrimai</strong> – stimuliuoja nervų sistemą, sukelia priklausomybę.</li>
-    </ul>
+
+    <!-- Alkoholis -->
+    <div class="card">
+      <img src="images/alkohol_--02.png" alt="Alkoholis">
+      <div class="card-content">
+        <h3>Alkoholis</h3>
+        <p>Tai toksiška, psichoaktyvi ir priklausomybę sukelianti medžiaga. Yra nustatytas ryšys tarp alkoholio vartojimo ir burnos, stemplės, kepenų bei kitų vėžių rizikos.</p>
+      </div>
+    </div>
+
+    <!-- Tabako gaminiai -->
+    <div class="card">
+      <img src="images/images.jpg" alt="Tabakas">
+      <div class="card-content">
+        <h3>Tabako gaminiai</h3>
+        <p>Rūkymas yra vienas iš pagrindinių daugelio plaučių ligų ir vėžio rizikos veiksnių. Tabako dūmuose yra šimtai kenksmingų medžiagų.</p>
+      </div>
+    </div>
+
+    <!-- Elektroninės cigaretės -->
+    <div class="card">
+      <img src="images/e cigarete.png" alt="Elektroninės cigaretės">
+      <div class="card-content">
+        <h3>Elektroninės cigaretės</h3>
+        <p>Elektroninės cigaretės ir kaitinamojo tabako gaminiai traukia jaunimą skonių ir dizaino įvairove, tačiau mokslinių įrodymų, kad jie mažiau kenksmingi, nėra.</p>
+      </div>
+    </div>
+
+    <!-- Naujos medžiagos -->
+    <div class="card">
+      <img src="images/65N8SJT8y0s.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg" alt="Naujos psichoaktyviosios medžiagos">
+      <div class="card-content">
+        <h3>Naujos psichoaktyviosios medžiagos</h3>
+        <p>Šios medžiagos dažnai parduodamos kaip „legalūs“ produktai, tačiau jų sudėtis nežinoma, o vartojimas gali būti pavojingas sveikatai ar net gyvybei.</p>
+      </div>
+    </div>
+
+    <!-- Vaistai -->
+    <div class="card">
+      <img src="images/7HBXBtvbRJ8.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg" alt="Vaistai">
+      <div class="card-content">
+        <h3>Vaistai</h3>
+        <p>Kai kurie vaistai taip pat gali sukelti priklausomybę, ypač vartojami be gydytojo priežiūros. Pavojus – perdozavimas ar net mirtis.</p>
+      </div>
+    </div>
+
+    <!-- Lakiosios medžiagos -->
+    <div class="card">
+      <img src="images/ea7S7QctBZc.png" alt="Lakiosios medžiagos">
+      <div class="card-content">
+        <h3>Lakiosios medžiagos</h3>
+        <p>Klijai, aerozoliai ir valikliai naudojami svaiginimuisi gali pažeisti smegenis, sukelti apsinuodijimą ar priklausomybę.</p>
+      </div>
+    </div>
+
+    <!-- Energiniai gėrimai -->
+    <div class="card">
+      <img src="images/energetinis.png" alt="Energiniai gėrimai">
+      <div class="card-content">
+        <h3>Energiniai gėrimai</h3>
+        <p>Turintys daug kofeino, jie stimuliuoja nervų sistemą, gali sukelti priklausomybę, nemigą ar net apsinuodijimą, ypač vartojant su alkoholiu.</p>
+      </div>
+    </div>
+
+    <!-- Narkotikai -->
+    <div class="card">
+      <img src="images/narkotikai.png" alt="Narkotikai">
+      <div class="card-content">
+        <h3>Narkotikai</h3>
+        <p>Narkotikai sukelia priklausomybę, psichikos bei elgesio sutrikimus, pažeidžia organizmo sistemas ir gali būti mirtinai pavojingi.</p>
+      </div>
+    </div>
+
   </section>
 
   <section id="pagalba">
     <h2>Kur kreiptis pagalbos</h2>
-    <p>Pagalba visada pasiekiama – štai keli kontaktai:</p>
     <ul>
       <li><strong>Klaipėdos visuomenės sveikatos biuras</strong> – konsultacijos ir prevencijos programos.</li>
       <li><strong>Respublikinis priklausomybės ligų centras</strong> – gydymas ir psichologinė pagalba.</li>
@@ -210,34 +190,23 @@
     <p><strong>Visuomenės sveikatos specialistė:</strong> <a href="mailto:azuolynas@sveikatosbiuras.lt">azuolynas@sveikatosbiuras.lt</a></p>
   </section>
 
-  <footer>
-    © 2025 Psichoaktyviųjų medžiagų prevencija
-  </footer>
+  <footer>© 2025 Psichoaktyviųjų medžiagų prevencija</footer>
 
   <script>
-    // Hamburger menu toggle
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
 
-    // Scroll animations
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.2 });
-
     sections.forEach(section => observer.observe(section));
 
-    // Close nav after clicking (mobile)
     document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-      });
+      link.addEventListener('click', () => nav.classList.remove('open'));
     });
   </script>
 </body>
 </html>
+
