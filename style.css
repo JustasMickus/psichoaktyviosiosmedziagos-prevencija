@@ -111,7 +111,7 @@ section {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease, transform 1s ease;
-  scroll-margin-top: 80px; /* Pakeitimai mobiliai nuorodoms */
+  scroll-margin-top: 80px;
 }
 
 section.visible { opacity:1; transform: translateY(0); }
@@ -149,7 +149,15 @@ section h2 {
 @media(max-width:900px){
   .card { flex-direction: column; text-align:center; }
   .card img, .card-content { width:100%; }
-  section { padding-top:100px; } /* mobiliai sekcijų padding */
+  section { padding-top:100px; }
+}
+
+/* ==== MOBILE FIX: viskas matoma telefone ==== */
+@media(max-width:768px){
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 footer {
