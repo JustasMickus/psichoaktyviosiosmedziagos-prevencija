@@ -5,91 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psichoaktyviųjų medžiagų prevencija</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f7f9fb;
-      color: #1e293b;
-      overflow-x: hidden;
-    }
-
-    /* ===== HEADER & NAV ===== */
-    header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: #ffffffcc; backdrop-filter: blur(10px);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 20px; z-index: 1000;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .logo { font-weight: 700; font-size: 1rem; color: #2563eb; text-transform: uppercase; }
-    nav { display: flex; gap: 1.5rem; }
-    nav a { text-decoration: none; color: #1e293b; font-weight: 500; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: #2563eb; }
-
-    /* Hamburger menu */
-    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
-    .menu-toggle span { height: 3px; width: 100%; background: #2563eb; border-radius: 2px; transition: 0.3s; }
-    @media(max-width:768px){
-      nav { position: fixed; top:60px; right:-100%; background:white; flex-direction:column; width:200px; border-left:1px solid #e2e8f0; box-shadow:-2px 0 10px rgba(0,0,0,0.1); transition: right 0.3s; padding:20px 0; }
-      nav.open { right:0; }
-      .menu-toggle { display:flex; }
-    }
-
-    /* ===== HERO ===== */
-    #home {
-      min-height: 100vh;
-      display: flex; justify-content: center; align-items: center; text-align: center;
-      background: linear-gradient(135deg, #93c5fd, #bfdbfe);
-      flex-direction: column; padding: 0 20px;
-    }
-    #home h1 { font-size: 2.5rem; color: #1e3a8a; margin-bottom: 1rem; }
-    #home p { color: #1e293b; max-width: 600px; }
-
-    /* ===== SECTIONS ===== */
-    section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
-    section.visible { opacity:1; transform: translateY(0); }
-    section h2 { color:#2563eb; margin-bottom:2rem; font-size:2rem; text-align:center; }
-
-    /* ===== CARDS ===== */
-    .card {
-      display: flex;
-      flex-direction: row;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); }
-    .card img { width: 40%; object-fit: cover; }
-    .card-content { padding: 20px; flex:1; }
-    .card-content h3 { color:#1e3a8a; margin-bottom:1rem; font-size:1.5rem; }
-    .card-content p { line-height:1.6; }
-
-    @media(max-width:900px){
-      .card { flex-direction: column; text-align:center; }
-      .card img, .card-content { width:100%; }
-    }
-
-    footer { text-align:center; padding:30px 0; background:#2563eb; color:white; margin-top:40px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">Psichoaktyviųjų medžiagų prevencija</div>
-    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
-    <nav id="nav">
-      <a href="#home" class="active">Pradžia</a>
-      <a href="#medziagos">Medžiagos</a>
-      <a href="#pagalba">Pagalba</a>
-      <a href="#kontaktai">Kontaktai</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">Psichoaktyviųjų medžiagų prevencija</div>
+  <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+  <nav id="nav">
+    <a href="#home" class="active">Pradžia</a>
+    <a href="#medziagos">Medžiagos</a>
+    <a href="#pagalba">Pagalba</a>
+    <a href="#kontaktai">Kontaktai</a>
+  </nav>
+</header>
 
+<main>
   <section id="home">
     <h1>Psichoaktyviųjų medžiagų prevencija</h1>
     <p>Sužinok, kodėl verta rinktis sveiką gyvenimo būdą ir kaip išvengti priklausomybių.</p>
@@ -98,7 +29,6 @@
   <section id="medziagos">
     <h2>Psichoaktyviosios medžiagos</h2>
 
-    <!-- Alkoholis -->
     <div class="card">
       <img src="images/alkohol_--02.png" alt="Alkoholis">
       <div class="card-content">
@@ -107,7 +37,6 @@
       </div>
     </div>
 
-    <!-- Tabako gaminiai -->
     <div class="card">
       <img src="images/images.jpg" alt="Tabakas">
       <div class="card-content">
@@ -116,7 +45,6 @@
       </div>
     </div>
 
-    <!-- Elektroninės cigaretės -->
     <div class="card">
       <img src="images/e cigarete.png" alt="Elektroninės cigaretės">
       <div class="card-content">
@@ -125,7 +53,6 @@
       </div>
     </div>
 
-    <!-- Naujos medžiagos -->
     <div class="card">
       <img src="images/65N8SJT8y0s.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg" alt="Naujos psichoaktyviosios medžiagos">
       <div class="card-content">
@@ -134,7 +61,6 @@
       </div>
     </div>
 
-    <!-- Vaistai -->
     <div class="card">
       <img src="images/7HBXBtvbRJ8.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg" alt="Vaistai">
       <div class="card-content">
@@ -143,7 +69,6 @@
       </div>
     </div>
 
-    <!-- Lakiosios medžiagos -->
     <div class="card">
       <img src="images/ea7S7QctBZc.png" alt="Lakiosios medžiagos">
       <div class="card-content">
@@ -152,7 +77,6 @@
       </div>
     </div>
 
-    <!-- Energiniai gėrimai -->
     <div class="card">
       <img src="images/energetinis.png" alt="Energiniai gėrimai">
       <div class="card-content">
@@ -161,7 +85,6 @@
       </div>
     </div>
 
-    <!-- Narkotikai -->
     <div class="card">
       <img src="images/narkotikai.png" alt="Narkotikai">
       <div class="card-content">
@@ -169,7 +92,6 @@
         <p>Narkotikai sukelia priklausomybę, psichikos bei elgesio sutrikimus, pažeidžia organizmo sistemas ir gali būti mirtinai pavojingi.</p>
       </div>
     </div>
-
   </section>
 
   <section id="pagalba">
@@ -207,6 +129,8 @@
       link.addEventListener('click', () => nav.classList.remove('open'));
     });
   </script>
+
 </body>
 </html>
+
 
