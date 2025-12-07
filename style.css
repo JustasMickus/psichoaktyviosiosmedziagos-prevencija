@@ -48,6 +48,7 @@ header {
   color: #1e293b;
   text-decoration: none;
   padding: 6px 8px;
+  font-family: inherit; /* kad Medžiagos būtų toks pats šriftas */
 }
 .nav-link:hover, .dropbtn:hover { color: #2563eb; }
 
@@ -75,6 +76,8 @@ header {
   background: none;
   cursor: pointer;
   color: #1e293b;
+  font-family: inherit;  /* toks pats šriftas kaip meniu */
+  font-size: 0.95rem;
 }
 .dropdown-item:hover { background: #eaf2ff; }
 
@@ -100,7 +103,6 @@ header {
   position: relative;
   padding: 0 20px;
   overflow: hidden;
-  /* fallback gradient if video missing */
   background: linear-gradient(135deg, #93c5fd 0%, #bfdbfe 100%);
 }
 #hero-video {
@@ -157,7 +159,24 @@ section h2 { color: #2563eb; margin-bottom: 2rem; font-size: 2rem; text-align:ce
 .card img { width: 40%; object-fit: cover; min-height: 180px; }
 .card-content { padding: 20px; flex: 1; }
 .card-content h3 { color: #1e3a8a; margin-bottom: 10px; font-size: 1.5rem; }
-.card-content p { line-height: 1.6; color: #1e293b; }
+
+/* Trumpas tekstas kortelėje (trim'inamas) */
+.card-content p {
+  line-height: 1.6;
+  color: #1e293b;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;       /* rodo tik kelias eilutes kortelėje */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Modal viduje rodomas visas tekstas */
+.modal-inner .card-content p {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+}
 
 /* Card actions (Plačiau) */
 .card-actions { margin-top: 14px; }
@@ -246,4 +265,5 @@ section h2 { color: #2563eb; margin-bottom: 2rem; font-size: 2rem; text-align:ce
 
 /* ===== FOOTER ===== */
 footer { text-align:center; padding:30px 0; background:#2563eb; color:white; margin-top:40px; }
+
 
