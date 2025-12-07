@@ -1,205 +1,343 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psichoaktyviųjų medžiagų prevencija</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Psichoaktyviųjų medžiagų prevencija</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
+  <a class="skip-link" href="#main">Praleisti į turinį</a>
+
+  <header>
     <div class="logo">Psichoaktyviųjų medžiagų prevencija</div>
 
-    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Atidaryti meniu">
+      <span></span><span></span><span></span>
+    </button>
 
-    <nav id="nav">
-        <a href="#home" class="active">Pradžia</a>
+    <nav id="nav" class="nav" aria-label="Pagrindinė navigacija">
+      <a href="#home" class="nav-link active">Pradžia</a>
 
-        <div class="dropdown">
-            <button class="dropbtn">Medžiagos ▼</button>
-            <div class="dropdown-content">
-                <a data-target="alkoholis">Alkoholis</a>
-                <a data-target="tabakas">Tabakas</a>
-                <a data-target="ecig">Elektroninės cigaretės</a>
-                <a data-target="nps">NPS</a>
-                <a data-target="vaistai">Vaistai</a>
-                <a data-target="lakiosios">Lakiosios medžiagos</a>
-                <a data-target="energetiniai">Energiniai gėrimai</a>
-                <a data-target="narkotikai">Narkotikai</a>
-            </div>
+      <div class="nav-item dropdown" id="medziagos-dropdown">
+        <button class="nav-link dropbtn" aria-expanded="false" id="dropbtn">Medžiagos ▾</button>
+        <div class="dropdown-content" id="dropdown-list" role="menu" aria-labelledby="dropbtn">
+          <button class="dropdown-item" data-target="alkoholis">Alkoholis</button>
+          <button class="dropdown-item" data-target="tabakas">Tabakas</button>
+          <button class="dropdown-item" data-target="ecig">Elektroninės cigaretės</button>
+          <button class="dropdown-item" data-target="nps">NPS</button>
+          <button class="dropdown-item" data-target="vaistai">Vaistai</button>
+          <button class="dropdown-item" data-target="lakiosios">Lakiosios medžiagos</button>
+          <button class="dropdown-item" data-target="energetiniai">Energiniai gėrimai</button>
+          <button class="dropdown-item" data-target="narkotikai">Narkotikai</button>
         </div>
+      </div>
 
-        <a href="#pagalba">Pagalba</a>
-        <a href="#kontaktai">Kontaktai</a>
+      <a href="#pagalba" class="nav-link">Pagalba</a>
+      <a href="#kontaktai" class="nav-link">Kontaktai</a>
     </nav>
-</header>
+  </header>
 
-<!-- HERO VIDEO -->
-<section id="home">
-    <video autoplay muted loop id="hero-video">
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero section">
+      <video id="hero-video" autoplay muted loop playsinline>
         <source src="videos/intro.mp4" type="video/mp4">
-    </video>
+        <!-- Jeigu neturite video - naršyklė ignoruos ir bus matyti gradient fonas -->
+      </video>
+      <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+      <div class="hero-inner">
         <h1>Psichoaktyviųjų medžiagų prevencija</h1>
         <p>Sužinok, kodėl verta rinktis sveiką gyvenimo būdą ir kaip išvengti priklausomybių.</p>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section id="medziagos">
-    <h2>Psichoaktyviosios medžiagos</h2>
+    <!-- MEDŽIAGOS -->
+    <section id="medziagos" class="section">
+      <h2>Psichoaktyviosios medžiagos</h2>
 
-    <!-- ALKOHOLIS -->
-    <div class="card" data-id="alkoholis">
-        <img src="images/alkohol_--02.png" alt="Alkoholis">
+      <!-- ALKOHOLIS -->
+      <div class="card" data-id="alkoholis" tabindex="0">
+        <img loading="lazy" src="images/alkohol_--02.png" alt="Alkoholis">
         <div class="card-content">
-            <h3>Alkoholis</h3>
-            <p>Alkoholis – toksiška, psichoaktyvi medžiaga, sukelianti priklausomybę...</p>
+          <h3>Alkoholis</h3>
+          <p>Alkoholis – toksiška, psichoaktyvi medžiaga, sukelianti priklausomybę. Jo vartojimas didina burnos, stemplės, ryklės, kepenų, storžarnės ir krūties vėžio riziką. Saugaus alkoholio kiekio nėra – net mažos dozės kenkia. Jaunam organizmui alkoholis ypač pavojingas, nes pažeidžia dar besivystančias smegenis, blogina atmintį, samprotavimą, emocijų valdymą ir mokymosi gebėjimus. Pažeidimai gali būti ilgalaikiai ir negrįžtami.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="alkoholis">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- TABAKAS -->
-    <div class="card" data-id="tabakas">
-        <img src="images/images.jpg" alt="Tabakas">
+      <!-- TABAKAS -->
+      <div class="card" data-id="tabakas" tabindex="0">
+        <img loading="lazy" src="images/images.jpg" alt="Tabakas">
         <div class="card-content">
-            <h3>Tabako gaminiai</h3>
-            <p>Rūkymas – vienas pagrindinių plaučių ligų ir vėžio rizikos veiksnių...</p>
+          <h3>Tabako gaminiai</h3>
+          <p>Rūkymas – vienas pagrindinių plaučių ligų, LOPL, širdies ir kraujagyslių ligų bei vėžio rizikos veiksnių. Tabako dūmuose yra šimtai nuodingų medžiagų, įskaitant nikotiną, dervas ir anglies monoksidą. Rūkymas sutrikdo kvėpavimą, mažina fizinį pajėgumą, silpnina skonio ir uoslės pojūčius, spartina senėjimą. Nikotinas greitai sukelia priklausomybę – ypač jaunam žmogui, o ilgainiui didina infarkto ir vėžio riziką.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="tabakas">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- ELEKTRONINĖS CIGARETĖS -->
-    <div class="card" data-id="ecig">
-        <img src="images/e cigarete.png" alt="Elektroninės cigaretės">
+      <!-- ELECTRONIC CIG -->
+      <div class="card" data-id="ecig" tabindex="0">
+        <img loading="lazy" src="images/e cigarete.png" alt="Elektroninės cigaretės">
         <div class="card-content">
-            <h3>Elektroninės cigaretės</h3>
-            <p>Elektroninės cigaretės atsirado neseniai, todėl jų poveikis...</p>
+          <h3>Elektroninės cigaretės</h3>
+          <p>Elektroninės cigaretės atsirado neseniai, todėl jų poveikis sveikatai dar nėra iki galo ištirtas. Jose esantis nikotinas sukelia priklausomybę, o kaitinant skystį išsiskiria toksiškos ir kancerogeninės medžiagos, tokios kaip formaldehidas ar akroleinas. Jauni vartotojai dažnai pereina prie tradicinių cigarečių. E. cigaretės gali būti užpildytos nelegaliomis ar narkotinėmis medžiagomis, todėl jų vartojimas kelia rimtą pavojų sveikatai.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="ecig">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- NPS -->
-    <div class="card" data-id="nps">
-        <img src="images/65N8SJT8y0s.jpg" alt="NPS">
+      <!-- NPS -->
+      <div class="card" data-id="nps" tabindex="0">
+        <img loading="lazy" src="images/65N8SJT8y0s.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg" alt="Naujos psichoaktyviosios medžiagos">
         <div class="card-content">
-            <h3>Naujos psichoaktyviosios medžiagos</h3>
-            <p>NPS – tai nauji produktai, kurių sudėtis ir poveikis nežinomi...</p>
+          <h3>Naujos psichoaktyviosios medžiagos</h3>
+          <p>NPS – tai nauji, dažnai internete platinami „legalūs“ produktai, kurių sudėtis ir poveikis nežinomi. Jie gali būti miltelių, tablečių, skysčių ar žolinių mišinių pavidalo. Šios medžiagos dažnai slepiamos po kitais pavadinimais, o jų vartojimas gali sukelti stiprius sveikatos sutrikimus – traukulius, haliucinacijas, kvėpavimo ar širdies sutrikimus, net mirtį. Vartojant NPS rizikuojama tiek fizine, tiek psichine sveikata.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="nps">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- VAISTAI -->
-    <div class="card" data-id="vaistai">
-        <img src="images/7HBXBtvbRJ8.jpg" alt="Vaistai">
+      <!-- VAISTAI -->
+      <div class="card" data-id="vaistai" tabindex="0">
+        <img loading="lazy" src="images/7HBXBtvbRJ8.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg" alt="Vaistai">
         <div class="card-content">
-            <h3>Vaistai</h3>
-            <p>Kai kurie vaistai gali sukelti priklausomybę, jei vartojami...</p>
+          <h3>Vaistai</h3>
+          <p>Kai kurie vaistai (pvz., migdomieji, raminamieji, antidepresantai) gali sukelti priklausomybę, jei vartojami be gydytojo nurodymų. Savarankiškas vaistų vartojimas ypač pavojingas vaikams – gresia apsinuodijimas ar net mirtis. Piktnaudžiavimas receptiniais vaistais dažnai susijęs su kitais žalingais įpročiais (alkoholiu, narkotikais) ir kelis kartus padidina savižudybės riziką. Vaistus visada turi skirti tik gydytojas.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="vaistai">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- LAKIOSIOS MEDŽIAGOS -->
-    <div class="card" data-id="lakiosios">
-        <img src="images/ea7S7QctBZc.png" alt="Lakiosios medžiagos">
+      <!-- LAKIOSIOS -->
+      <div class="card" data-id="lakiosios" tabindex="0">
+        <img loading="lazy" src="images/ea7S7QctBZc.png" alt="Lakiosios medžiagos">
         <div class="card-content">
-            <h3>Lakiosios medžiagos</h3>
-            <p>Klijai, aerozoliai ir valikliai sukelia apsinuodijimą ir smegenų pažeidimus...</p>
+          <h3>Lakiosios medžiagos</h3>
+          <p>Klijai, aerozoliai, valikliai ir kitos buitinės medžiagos, vartojamos svaiginimuisi, sukelia apsinuodijimą, pykinimą, traukulius, o ilgainiui – smegenų ir nervų sistemos pažeidimus. Uostant lakias medžiagas į smegenis jos patenka labai greitai, todėl apsvaigimas ištinka po kelių įkvėpimų. Šis elgesys itin pavojingas – gali baigtis negrįžtama žala ar net mirtimi.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="lakiosios">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- ENERGETINIAI -->
-    <div class="card" data-id="energetiniai">
-        <img src="images/energetinis.png" alt="Energiniai gėrimai">
+      <!-- ENERGETINIAI -->
+      <div class="card" data-id="energetiniai" tabindex="0">
+        <img loading="lazy" src="images/energetinis.png" alt="Energiniai gėrimai">
         <div class="card-content">
-            <h3>Energiniai gėrimai</h3>
-            <p>Energiniai gėrimai turi daug kofeino, kuris stimuliuoja nervų sistemą...</p>
+          <h3>Energiniai gėrimai</h3>
+          <p>Energiniai gėrimai turi daug kofeino – psichoaktyviosios medžiagos, stimuliuojančios nervų sistemą. Dideli kiekiai sukelia nerimą, nemigą, širdies plakimo sutrikimus, o vaikams – priklausomybę. Ypač pavojinga maišyti energinius gėrimus su alkoholiu, nes žmogus nebejaučia apsvaigimo ir gali smarkiai apsinuodyti. Reguliarus tokių gėrimų vartojimas alina organizmą ir trikdo natūralius miego ritmus.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="energetiniai">Plačiau</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- NARKOTIKAI -->
-    <div class="card" data-id="narkotikai">
-        <img src="images/narkotikai.png" alt="Narkotikai">
+      <!-- NARKOTIKAI -->
+      <div class="card" data-id="narkotikai" tabindex="0">
+        <img loading="lazy" src="images/narkotikai.png" alt="Narkotikai">
         <div class="card-content">
-            <h3>Narkotikai</h3>
-            <p>Narkotikai veikia psichiką ir greitai sukelia priklausomybę...</p>
+          <h3>Narkotikai</h3>
+          <p>Narkotikai – gamtinės ar sintetinės medžiagos, veikiančios psichiką ir sukeliančios fizinę bei psichologinę priklausomybę. Jie pažeidžia nervų, širdies, kvėpavimo ir kitų sistemų veiklą, sukelia psichikos sutrikimus, agresiją, depresiją, o perdozavus – mirtį. Priklausomybė vystosi greitai, o gydymas – sudėtingas ir ilgas. Vienintelis saugus pasirinkimas – visiškas narkotikų vengimas.</p>
+          <div class="card-actions">
+            <button class="more-btn" data-target="narkotikai">Plačiau</button>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section id="pagalba">
-    <h2>Kur kreiptis pagalbos</h2>
-    <div class="help-list">
+    </section>
+
+    <!-- PAGALBA -->
+    <section id="pagalba" class="section">
+      <h2>Kur kreiptis pagalbos</h2>
+      <div class="help-list">
         <div class="help-card">
-            <h3>Klaipėdos visuomenės sveikatos biuras</h3>
-            <p>Teikia konsultacijas...</p>
-            <a href="https://www.sveikatosbiuras.lt" target="_blank">🌐 www.sveikatosbiuras.lt</a>
+          <h3>Klaipėdos visuomenės sveikatos biuras</h3>
+          <p>Teikia konsultacijas, vykdo priklausomybių prevencijos ir sveikatos stiprinimo programas.</p>
+          <a href="https://www.sveikatosbiuras.lt" target="_blank">🌐 www.sveikatosbiuras.lt</a>
         </div>
 
         <div class="help-card">
-            <h3>Respublikinis priklausomybės ligų centras</h3>
-            <p>Siūlo medicininę, psichologinę ir socialinę pagalbą...</p>
-            <a href="https://www.rplc.lt" target="_blank">🌐 www.rplc.lt</a>
+          <h3>Respublikinis priklausomybės ligų centras</h3>
+          <p>Siūlo medicininę, psichologinę ir socialinę pagalbą priklausomybių turintiems asmenims ir jų artimiesiems.</p>
+          <a href="https://www.rplc.lt" target="_blank">🌐 www.rplc.lt</a>
         </div>
 
         <div class="help-card">
-            <h3>Klaipėdos pedagoginė psichologinė tarnyba</h3>
-            <p>Teikia emocinę pagalbą...</p>
+          <h3>Klaipėdos pedagoginė psichologinė tarnyba</h3>
+          <p>Teikia emocinę ir psichologinę pagalbą vaikams, paaugliams ir jų tėvams.</p>
         </div>
 
         <div class="help-card">
-            <h3>Jaunimo linija</h3>
-            <p>📞 <a href="tel:880028888">8 800 28888</a></p>
-            <a href="https://www.jaunimolinija.lt" target="_blank">🌐 www.jaunimolinija.lt</a>
+          <h3>Jaunimo linija</h3>
+          <p>Emocinė pagalba visą parą. Skambink nemokamai.</p>
+          <p>📞 <a href="tel:880028888">8 800 28888</a></p>
+          <a href="https://www.jaunimolinija.lt" target="_blank">🌐 www.jaunimolinija.lt</a>
         </div>
 
         <div class="help-card">
-            <h3>Vaikų linija</h3>
-            <p>📞 <a href="tel:116111">116111</a></p>
-            <a href="https://www.vaikulinija.lt" target="_blank">🌐 www.vaikulinija.lt</a>
+          <h3>Vaikų linija</h3>
+          <p>Pagalba vaikams ir paaugliams, patiriantiems stresą ar sunkumus santykiuose.</p>
+          <p>📞 <a href="tel:116111">116111</a></p>
+          <a href="https://www.vaikulinija.lt" target="_blank">🌐 www.vaikulinija.lt</a>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section id="kontaktai">
-    <h2>Kontaktai</h2>
-    <div class="contact-grid">
+    <!-- KONTAKTAI -->
+    <section id="kontaktai" class="section">
+      <h2>Kontaktai</h2>
+      <div class="contact-grid">
         <div class="contact-card">
-            <h3>Psichologė</h3>
-            <p><a href="mailto:lina.galvoniene@azuolynogimnazija.lt">lina.galvoniene@azuolynogimnazija.lt</a></p>
+          <h3>Psichologė</h3>
+          <p><a href="mailto:lina.galvoniene@azuolynogimnazija.lt">lina.galvoniene@azuolynogimnazija.lt</a></p>
         </div>
-
         <div class="contact-card">
-            <h3>Socialinė pedagogė</h3>
-            <p><a href="mailto:deimante.juozaitiene@azuolynogimnazija.lt">deimante.juozaitiene@azuolynogimnazija.lt</a></p>
+          <h3>Socialinė pedagogė</h3>
+          <p><a href="mailto:deimante.juozaitiene@azuolynogimnazija.lt">deimante.juozaitiene@azuolynogimnazija.lt</a></p>
         </div>
-
         <div class="contact-card">
-            <h3>Visuomenės sveikatos specialistė</h3>
-            <p><a href="mailto:azuolynas@sveikatosbiuras.lt">azuolynas@sveikatosbiuras.lt</a></p>
+          <h3>Visuomenės sveikatos specialistė</h3>
+          <p><a href="mailto:azuolynas@sveikatosbiuras.lt">azuolynas@sveikatosbiuras.lt</a></p>
         </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2025 Psichoaktyviųjų medžiagų prevencija</footer>
+
+  <!-- MODAL (B variantas) -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-inner" role="document">
+      <button id="modal-close" class="modal-close" aria-label="Uždaryti">✕</button>
+      <div id="modal-content">
+        <!-- Dinamiškai užpildysime turiniu -->
+      </div>
     </div>
-</section>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+  </div>
 
-<footer>© 2025 Psichoaktyviųjų medžiagų prevencija</footer>
-
-<script>
-// Hamburger
-const toggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav');
-toggle.addEventListener('click', () => nav.classList.toggle('open'));
-
-// Dropdown targeting
-document.querySelectorAll(".dropdown-content a").forEach(a => {
-    a.addEventListener("click", () => {
-        const id = a.dataset.target;
-        document.querySelectorAll("#medziagos .card").forEach(c => {
-            c.style.display = (c.dataset.id === id) ? "flex" : "none";
-        });
-        nav.classList.remove("open");
-        document.querySelector("#medziagos").scrollIntoView({behavior:"smooth"});
+  <script>
+    // NAV / HAMBURGER
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-});
-</script>
 
+    // DROPDOWN - valdomas per click (ne hover), todėl neišnyksta
+    const dropbtn = document.getElementById('dropbtn');
+    const dropdownList = document.getElementById('dropdown-list');
+    const medDropdown = document.getElementById('medziagos-dropdown');
+
+    // open/close dropdown on click
+    dropbtn.addEventListener('click', (e) => {
+      const expanded = dropbtn.getAttribute('aria-expanded') === 'true';
+      dropbtn.setAttribute('aria-expanded', (!expanded).toString());
+      dropdownList.classList.toggle('visible');
+      e.stopPropagation();
+    });
+
+    // close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!medDropdown.contains(e.target)) {
+        dropdownList.classList.remove('visible');
+        dropbtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Helper to get card HTML content to modal
+    function getCardContentById(id) {
+      const card = document.querySelector(`#medziagos .card[data-id="${id}"]`);
+      if (!card) return null;
+      // clone node to show in modal
+      const clone = card.cloneNode(true);
+      // remove actions inside modal (we'll show close)
+      const actions = clone.querySelector('.card-actions');
+      if (actions) actions.remove();
+      return clone.innerHTML;
+    }
+
+    // OPEN MODAL with material
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    const modalClose = document.getElementById('modal-close');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+
+    function openModalFor(id) {
+      const content = getCardContentById(id);
+      if (!content) return;
+      modalContent.innerHTML = content;
+      modal.setAttribute('aria-hidden', 'false');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // focus close button for accessibility
+      modalClose.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      modalContent.innerHTML = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Dropdown items -> open modal (keeps korteles nepakitus)
+    document.querySelectorAll('.dropdown-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.target;
+        openModalFor(id);
+        // close dropdown and mobile nav
+        dropdownList.classList.remove('visible');
+        dropbtn.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('open');
+      });
+    });
+
+    // 'Plačiau' buttons on cards
+    document.querySelectorAll('.more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.target;
+        openModalFor(id);
+      });
+    });
+
+    // Scroll reveal animations (like before)
+    const sections = document.querySelectorAll('.section, .card, .help-card, .contact-card');
+    if (window.innerWidth > 768) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      sections.forEach(s => observer.observe(s));
+    } else {
+      sections.forEach(s => s.classList.add('visible'));
+    }
+
+    // Close nav when clicking link (mobile)
+    document.querySelectorAll('#nav a.nav-link').forEach(a => {
+      a.addEventListener('click', () => nav.classList.remove('open'));
+    });
+  </script>
 </body>
 </html>
 
