@@ -45,7 +45,6 @@
     <section id="home" class="hero section">
       <video id="hero-video" autoplay muted loop playsinline>
         <source src="videos/intro.mp4" type="video/mp4">
-        <!-- Jeigu neturite video - naršyklė ignoruos ir bus matyti gradient fonas -->
       </video>
       <div class="hero-overlay"></div>
 
@@ -148,7 +147,7 @@
         <img loading="lazy" src="images/narkotikai.png" alt="Narkotikai">
         <div class="card-content">
           <h3>Narkotikai</h3>
-          <p>Narkotikai – gamtinės ar sintetinės medžiagos, veikiančios psichiką ir sukeliančios fizinę bei psichologinę priklausomybę. Jie pažeidžia nervų, širdies, kvėpavimo ir kitų sistemų veiklą, sukelia psichikos sutrikimus, agresiją, depresiją, o perdozavus – mirtį. Priklausomybė vystosi greitai, o gydymas – sudėtingas ir ilgas. Vienintelis saugus pasirinkimas – visiškas narkotikų vengimas.</p>
+          <p>Narkotikai – gamtinės ar sintetinės medžiagos, veikiančios psichiką ir sukeliančias fizinę bei psichologinę priklausomybę. Jie pažeidžia nervų, širdies, kvėpavimo ir kitų sistemų veiklą, sukelia psichikos sutrikimus, agresiją, depresiją, o perdozavus – mirtį. Priklausomybė vystosi greitai, o gydymas – sudėtingas ir ilgas. Vienintelis saugus pasirinkimas – visiškas narkotikų vengimas.</p>
           <div class="card-actions">
             <button class="more-btn" data-target="narkotikai">Plačiau</button>
           </div>
@@ -160,6 +159,8 @@
     <!-- PAGALBA -->
     <section id="pagalba" class="section">
       <h2>Kur kreiptis pagalbos</h2>
+      <p class="section-note">Žemiau pateiktos įstaigos ir organizacijos, į kurias galite kreiptis pagalbos ar pasikonsultuoti.</p>
+
       <div class="help-list">
         <div class="help-card">
           <h3>Klaipėdos visuomenės sveikatos biuras</h3>
@@ -197,6 +198,8 @@
     <!-- KONTAKTAI -->
     <section id="kontaktai" class="section">
       <h2>Kontaktai</h2>
+      <p class="section-note">Čia galite parašyti pasirinktam specialistui ir gauti daugiau informacijos ar pagalbos.</p>
+
       <div class="contact-grid">
         <div class="contact-card">
           <h3>Psichologė</h3>
@@ -221,9 +224,7 @@
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-inner" role="document">
       <button id="modal-close" class="modal-close" aria-label="Uždaryti">✕</button>
-      <div id="modal-content">
-        <!-- Dinamiškai užpildysime turiniu -->
-      </div>
+      <div id="modal-content"></div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop"></div>
   </div>
@@ -242,7 +243,6 @@
     const dropdownList = document.getElementById('dropdown-list');
     const medDropdown = document.getElementById('medziagos-dropdown');
 
-    // open/close dropdown on click
     dropbtn.addEventListener('click', (e) => {
       e.preventDefault();
       const expanded = dropbtn.getAttribute('aria-expanded') === 'true';
@@ -251,7 +251,6 @@
       e.stopPropagation();
     });
 
-    // close dropdown when clicking outside
     document.addEventListener('click', (e) => {
       if (!medDropdown.contains(e.target)) {
         dropdownList.classList.remove('visible');
@@ -259,7 +258,6 @@
       }
     });
 
-    // Helper to get card HTML content to modal
     function getCardContentById(id) {
       const card = document.querySelector(`#medziagos .card[data-id="${id}"]`);
       if (!card) return null;
@@ -269,7 +267,7 @@
       return clone.innerHTML;
     }
 
-    // Scroll to material card from dropdown (centruojam kortelę)
+    // centravimas iki kortelės
     function scrollToMaterial(id) {
       const card = document.querySelector(`#medziagos .card[data-id="${id}"]`);
       if (!card) return;
@@ -285,11 +283,9 @@
         behavior: 'smooth'
       });
 
-      // truputį palaukiam, kol nusiscrollins, ir atnaujinam aktyvią kortelę
       setTimeout(updateActiveCardOnScroll, 400);
     }
 
-    // MODAL
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
@@ -318,7 +314,6 @@
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
-    // Dropdown items -> scroll to card (not modal)
     document.querySelectorAll('.dropdown-item').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -330,7 +325,6 @@
       });
     });
 
-    // 'Plačiau' buttons on cards -> open modal with full text
     document.querySelectorAll('.more-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.target;
@@ -338,7 +332,6 @@
       });
     });
 
-    // Scroll reveal animations
     const sections = document.querySelectorAll('.section, .card, .help-card, .contact-card');
     if (window.innerWidth > 768) {
       const observer = new IntersectionObserver(entries => {
@@ -351,12 +344,10 @@
       sections.forEach(s => s.classList.add('visible'));
     }
 
-    // Close nav when clicking link (mobile)
     document.querySelectorAll('#nav a.nav-link').forEach(a => {
       a.addEventListener('click', () => nav.classList.remove('open'));
     });
 
-    // ===== AKTYVI KORTELĖ PAGAL SCROLL =====
     const materialCards = document.querySelectorAll('#medziagos .card');
 
     function updateActiveCardOnScroll() {
@@ -388,7 +379,6 @@
       });
     }
 
-    // atnaujinam, kai scrollini ir kai užsikrauna puslapis
     window.addEventListener('scroll', () => {
       window.requestAnimationFrame(updateActiveCardOnScroll);
     });
@@ -396,6 +386,7 @@
   </script>
 </body>
 </html>
+
 
 
 
