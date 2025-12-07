@@ -269,11 +269,24 @@
       return clone.innerHTML;
     }
 
-    // Scroll to material card from dropdown
+    // Scroll to material card from dropdown (centruojam kortelę)
     function scrollToMaterial(id) {
       const card = document.querySelector(`#medziagos .card[data-id="${id}"]`);
       if (!card) return;
-      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.top + window.pageYOffset + rect.height / 2;
+      const viewportCenter = window.innerHeight / 2;
+
+      const targetScroll = cardCenter - viewportCenter;
+
+      window.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth'
+      });
+
+      // truputį palaukiam, kol nusiscrollins, ir atnaujinam aktyvią kortelę
+      setTimeout(updateActiveCardOnScroll, 400);
     }
 
     // MODAL
@@ -342,8 +355,47 @@
     document.querySelectorAll('#nav a.nav-link').forEach(a => {
       a.addEventListener('click', () => nav.classList.remove('open'));
     });
+
+    // ===== AKTYVI KORTELĖ PAGAL SCROLL =====
+    const materialCards = document.querySelectorAll('#medziagos .card');
+
+    function updateActiveCardOnScroll() {
+      if (!materialCards.length) return;
+
+      const viewportCenter = window.innerHeight / 2;
+      let closestCard = null;
+      let closestDistance = Infinity;
+
+      materialCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestCard = card;
+        }
+      });
+
+      materialCards.forEach(card => {
+        if (card === closestCard) {
+          card.classList.add('active-card');
+          card.classList.remove('inactive-card');
+        } else {
+          card.classList.remove('active-card');
+          card.classList.add('inactive-card');
+        }
+      });
+    }
+
+    // atnaujinam, kai scrollini ir kai užsikrauna puslapis
+    window.addEventListener('scroll', () => {
+      window.requestAnimationFrame(updateActiveCardOnScroll);
+    });
+    window.addEventListener('load', updateActiveCardOnScroll);
   </script>
 </body>
 </html>
+
 
 
