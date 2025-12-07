@@ -237,13 +237,14 @@
       menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    // DROPDOWN - valdomas per click (ne hover), todėl neišnyksta
+    // DROPDOWN - valdomas per click
     const dropbtn = document.getElementById('dropbtn');
     const dropdownList = document.getElementById('dropdown-list');
     const medDropdown = document.getElementById('medziagos-dropdown');
 
     // open/close dropdown on click
     dropbtn.addEventListener('click', (e) => {
+      e.preventDefault();
       const expanded = dropbtn.getAttribute('aria-expanded') === 'true';
       dropbtn.setAttribute('aria-expanded', (!expanded).toString());
       dropdownList.classList.toggle('visible');
@@ -262,15 +263,20 @@
     function getCardContentById(id) {
       const card = document.querySelector(`#medziagos .card[data-id="${id}"]`);
       if (!card) return null;
-      // clone node to show in modal
       const clone = card.cloneNode(true);
-      // remove actions inside modal (we'll show close)
       const actions = clone.querySelector('.card-actions');
       if (actions) actions.remove();
       return clone.innerHTML;
     }
 
-    // OPEN MODAL with material
+    // Scroll to material card from dropdown
+    function scrollToMaterial(id) {
+      const card = document.querySelector(`#medziagos .card[data-id="${id}"]`);
+      if (!card) return;
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // MODAL
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
@@ -283,7 +289,6 @@
       modal.setAttribute('aria-hidden', 'false');
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
-      // focus close button for accessibility
       modalClose.focus();
     }
 
@@ -300,19 +305,19 @@
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
-    // Dropdown items -> open modal (keeps korteles nepakitus)
+    // Dropdown items -> scroll to card (not modal)
     document.querySelectorAll('.dropdown-item').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const id = btn.dataset.target;
-        openModalFor(id);
-        // close dropdown and mobile nav
+        scrollToMaterial(id);
         dropdownList.classList.remove('visible');
         dropbtn.setAttribute('aria-expanded', 'false');
         nav.classList.remove('open');
       });
     });
 
-    // 'Plačiau' buttons on cards
+    // 'Plačiau' buttons on cards -> open modal with full text
     document.querySelectorAll('.more-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.target;
@@ -320,7 +325,7 @@
       });
     });
 
-    // Scroll reveal animations (like before)
+    // Scroll reveal animations
     const sections = document.querySelectorAll('.section, .card, .help-card, .contact-card');
     if (window.innerWidth > 768) {
       const observer = new IntersectionObserver(entries => {
@@ -340,6 +345,5 @@
   </script>
 </body>
 </html>
-
 
 
