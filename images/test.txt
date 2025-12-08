@@ -5,4 +5,4 @@ images/65N8SJT8y0s.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_u
 images/7HBXBtvbRJ8.jpg__2280x1520_q85_ALIAS-newshudge_crop-smart_subsampling-2_upscale.jpg
 images/lakiosios medziagos.jpg
 images/energetinis.png
-images/narkotikai.png
+images/narkotikai.jpg
