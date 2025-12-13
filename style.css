@@ -199,6 +199,44 @@ section h2 { color: #2563eb; margin-bottom: 0.4rem; font-size: 2rem; text-align:
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+/* ===== UPGRADE TIPS ===== */
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.upgrade-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f8fbff, #eef5ff);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  align-items: flex-start;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.upgrade-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+}
+
+.upgrade-icon {
+  font-size: 1.6rem;
+}
+
+.upgrade-card h3 {
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.upgrade-card p {
+  color: #1e293b;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
 /* ===== HELP / PAGALBA ===== */
 .help-list { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .help-card {

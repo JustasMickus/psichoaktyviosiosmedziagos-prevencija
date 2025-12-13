@@ -36,6 +36,7 @@
       </div>
 
       <a href="#pagalba" class="nav-link">Pagalba</a>
+      <a href="#upgrade" class="nav-link">Ką galiu patobulinti?</a>
       <a href="#kontaktai" class="nav-link">Kontaktai</a>
     </nav>
   </header>
@@ -130,6 +131,54 @@
         </div>
       </div>
 
+    </section>
+
+    <!-- KA PATOBULINTI -->
+    <section id="upgrade" class="section">
+      <h2>Ką galiu patobulinti?</h2>
+      <p class="section-note">Penki greiti būdai sustiprinti savo kasdienybę ir apsisaugoti nuo žalingų įpročių.</p>
+
+      <div class="upgrade-grid">
+        <div class="upgrade-card">
+          <div class="upgrade-icon" aria-hidden="true">🏃</div>
+          <div>
+            <h3>Judėk kasdien</h3>
+            <p>Pasirink veiklą, kuri teikia džiaugsmą – vaikščiojimą, šokius, dviračius ar treniruotes. Bent 30 min. aktyvumo padeda mažinti stresą ir stiprina savivertę.</p>
+          </div>
+        </div>
+
+        <div class="upgrade-card">
+          <div class="upgrade-icon" aria-hidden="true">🧘</div>
+          <div>
+            <h3>Skirk laiko poilsiui</h3>
+            <p>Išbandyk kvėpavimo pratimus, dėmesingumo meditaciją ar ramų vakarą be ekranų. Kokybiškas poilsis mažina norą ieškoti greitų nusiraminimo priemonių.</p>
+          </div>
+        </div>
+
+        <div class="upgrade-card">
+          <div class="upgrade-icon" aria-hidden="true">🤝</div>
+          <div>
+            <h3>Puoselėk ryšius</h3>
+            <p>Susitik su draugais, šeima ar bendruomenės grupėmis. Atviri pokalbiai apie jausmus ir sunkumus padeda jaustis saugiau ir mažina vienišumą.</p>
+          </div>
+        </div>
+
+        <div class="upgrade-card">
+          <div class="upgrade-icon" aria-hidden="true">📖</div>
+          <div>
+            <h3>Rinkis patikimą informaciją</h3>
+            <p>Jei kyla klausimų apie medžiagas, tikrink sveikatos institucijų ar patikimų specialistų rekomendacijas. Mitas gali būti toks pat pavojingas kaip ir pati medžiaga.</p>
+          </div>
+        </div>
+
+        <div class="upgrade-card">
+          <div class="upgrade-icon" aria-hidden="true">📝</div>
+          <div>
+            <h3>Turėk planą „B“</h3>
+            <p>Prieš šventes ar renginius apsvarstyk, kaip atsisakysi pasiūlymų vartoti alkoholį ar kitas medžiagas. Pasiruoštas atsakymas suteikia pasitikėjimo.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- PAGALBA -->
@@ -266,7 +315,7 @@
     });
 
     // Scroll reveal animations
-    const sections = document.querySelectorAll('.section, .card, .help-card, .contact-card');
+    const sections = document.querySelectorAll('.section, .card, .help-card, .contact-card, .upgrade-card');
     if (window.innerWidth > 768) {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
